@@ -31,6 +31,10 @@ https://docs.google.com/forms/d/e/1FAIpQLSe0I0FfpM8Dm-u1UPBldcNd9lUf8egcqCziPInB
   使用 Netlify Forms
   使用 Firebase
 
+部署作業 ID
+AKfycbzlg0R_jnESXVDcn7NqhRt-mlSKHdBqyiYgny6D_JY5TiLRrnZ22xqk54cXCl2imAoa
+
+https://script.google.com/macros/s/AKfycbzlg0R_jnESXVDcn7NqhRt-mlSKHdBqyiYgny6D_JY5TiLRrnZ22xqk54cXCl2imAoa/exec
 
 （淘汰）最簡單的方式：使用 JSON Server, 但是這個方法沒有辦法從github端訪問回來
 # 1. 首先安裝 Node.js（如果還沒安裝的話）
