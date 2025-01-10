@@ -56,88 +56,86 @@
     <p style="background-color:tomato;">This is a paragraph.</p>
 
     <div id="app"></div>
-        <!-- 只有需要動態控制的內容放這裡 -->
         <div class="form-container">
             <h2>使用者註冊</h2>
-    
-            <!-- 表單 -->
+
             <form @submit.prevent="submitForm" v-if="!submitted">
                 <div class="form-group">
                     <label>姓名：</label>
                     <input type="text" v-model="formData.name" required>
                 </div>
-    
+
                 <div class="form-group">
                     <label>電話：</label>
                     <input type="tel" v-model="formData.phone" required>
                 </div>
-    
-                <button type="submit">提交</button>
+
+                <button type="submit" :disabled="submitting">
+                    {{ submitting ? '提交中...' : '提交' }}
+                </button>
             </form>
-    
-            <!-- 成功訊息 -->
+
             <div v-if="submitted" class="success-message">
                 {{ message }}
+                <br><br>
+                <button @click="resetForm">重新填寫</button>
             </div>
         </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <script>
-        // Vue 初始化程式碼
         const app = Vue.createApp({
-        data() {
-            return {
-                formData: {
-                    name: '',
-                    phone: ''
+            data() {
+                return {
+                    formData: {
+                        name: '',
+                        phone: ''
+                    },
+                    submitted: false,
+                    submitting: false,
+                    message: ''
+                }
+            },
+            methods: {
+                async submitForm() {
+                    this.submitting = true;
+
+                    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe0I0FfpM8Dm-u1UPBldcNd9lUf8egcqCziPInB68SmTH5j3g/formResponse';
+
+                    try {
+                        const formData = new FormData();
+                        formData.append('entry.2084187411', this.formData.name);
+                        formData.append('entry.1230517025', this.formData.phone);
+
+                        await fetch('https://cors-anywhere.herokuapp.com/' + formUrl, {
+                            method: 'POST',
+                            body: formData,
+                            mode: 'cors',
+                        });
+
+                        this.submitted = true;
+                        this.message = `謝謝您的註冊，${this.formData.name}！`;
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('提交失敗，請稍後再試！');
+                    } finally {
+                        this.submitting = false;
+                    }
                 },
-                submitted: false,
-                message: ''
-            }
-        },
-        methods: {
-            async submitForm() {
-                this.submitting = true;
-            
-                this.submitting = true;
-                const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe0I0FfpM8Dm-u1UPBldcNd9lUf8egcqCziPInB68SmTH5j3g/formResponse';
-
-                try {
-                    const formData = new FormData();
-                    formData.append('entry.2084187411', this.formData.name);  // 姓名
-                    formData.append('entry.1230517025', this.formData.phone); // 電話
-
-                    // 使用 CORS Proxy
-                    await fetch('https://cors-anywhere.herokuapp.com/' + formUrl, {
-                        method: 'POST',
-                        body: formData,
-                        mode: 'cors',
-                    });
-
-                    this.submitted = true;
-                    this.message = `謝謝您的註冊，${this.formData.name}！`;
-
-                    // 清空表單
+                resetForm() {
+                    this.submitted = false;
                     this.formData = {
                         name: '',
                         phone: ''
                     };
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('提交失敗，請稍後再試！');
-                } finally {
-                    this.submitting = false;
+                    this.message = '';
                 }
             }
-        }
-    });
+        });
 
-    app.mount('#app'); 
+        app.mount('#app');
     </script>
-
 
     
 </body>
