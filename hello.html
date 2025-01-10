@@ -59,7 +59,7 @@
         <div class="form-container">
             <h2>使用者註冊</h2>
 
-            <form @submit.prevent="submitForm" v-if="!submitted">
+            <form @submit.prevent="submitForm">
                 <div class="form-group">
                     <label>姓名：</label>
                     <input type="text" v-model="formData.name" required>
@@ -108,28 +108,19 @@
                         formData.append('entry.2084187411', this.formData.name);
                         formData.append('entry.1230517025', this.formData.phone);
 
-                        await fetch('https://cors-anywhere.herokuapp.com/' + formUrl, {
+                        await fetch(formUrl, {
                             method: 'POST',
                             body: formData,
-                            mode: 'cors',
                         });
 
                         this.submitted = true;
                         this.message = `謝謝您的註冊，${this.formData.name}！`;
                     } catch (error) {
                         console.error('Error:', error);
-                        alert('提交失敗，請稍後再試！');
+                        this.message = '提交失敗，請稍後再試！';
                     } finally {
                         this.submitting = false;
                     }
-                },
-                resetForm() {
-                    this.submitted = false;
-                    this.formData = {
-                        name: '',
-                        phone: ''
-                    };
-                    this.message = '';
                 }
             }
         });
