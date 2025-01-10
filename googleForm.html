@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Form Debug</title>
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .success-message {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="form-container">
+            <h2>使用者註冊</h2>
+
+            <form @submit.prevent="submitForm" v-if="!submitted">
+                <div class="form-group">
+                    <label>姓名：</label>
+                    <input type="text" v-model="formData.name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>電話：</label>
+                    <input type="tel" v-model="formData.phone" required>
+                </div>
+
+                <button type="submit" :disabled="submitting">
+                    {{ submitting ? '提交中...' : '提交' }}
+                </button>
+            </form>
+
+            <div v-if="submitted" class="success-message">
+                {{ message }}
+                <br><br>
+                <button @click="resetForm">重新填寫</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    formData: {
+                        name: '',
+                        phone: ''
+                    },
+                    submitted: false,
+                    submitting: false,
+                    message: ''
+                };
+            },
+            methods: {
+                async submitForm() {
+                    this.submitting = true;
+
+                    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe0I0FfpM8Dm-u1UPBldcNd9lUf8egcqCziPInB68SmTH5j3g/formResponse';
+
+                    try {
+                        const formData = new FormData();
+                        formData.append('entry.2084187411', this.formData.name);
+                        formData.append('entry.1230517025', this.formData.phone);
+
+                        const response = await fetch(formUrl, {
+                            method: 'POST',
+                            body: formData,
+                        });
+
+                        if (response.ok || response.status === 0) {
+                            this.submitted = true;
+                            this.message = `謝謝您的註冊，${this.formData.name}！`;
+                        } else {
+                            throw new Error('Google Form submission failed');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        this.message = '提交失敗，請稍後再試！';
+                        alert('提交失敗，請稍後再試！');
+                    } finally {
+                        this.submitting = false;
+                    }
+                },
+
+                resetForm() {
+                    this.submitted = false;
+                    this.formData = {
+                        name: '',
+                        phone: ''
+                    };
+                    this.message = '';
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
