@@ -1,8 +1,8 @@
 // Marquee
 $('.marquee').marquee({
-    duration: 12500,
+    duration: 20000,
     gap: 50,
-    delayBeforeStart: 0,
+    delayBeforeStart: 1000,
     direction: 'left',
     duplicated: true
 });

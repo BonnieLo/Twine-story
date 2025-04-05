@@ -1,7 +1,7 @@
 /*
 ==============================================
 FONT PROPORTION INDEX
-
+==============================================
 Large - includes H1 - 2rem
 Base - paragraph, ul, ol, dd, etc. - 1rem
 Base Diminished - H2, H3, H4, blockquote - 0.9rem
@@ -15,249 +15,239 @@ Font Files
 ============================================== */
 
 @font-face {
-    font-family: 'Mallory';
-    src: url('fonts/Mallory-Book.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'Mallory';
-    font-style: italic;
-    src: url('fonts/Mallory-Book-Italic.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'Mallory';
-    font-weight: bold;
-    src: url('fonts/Mallory-Bold.woff') format('woff');
-  }
-  @font-face {
-    font-family: 'Mallory';
-    font-weight: bold;
-    font-style: italic;
-    src: url('fonts/Mallory-Bold-Italic.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'Pitch Sans';
-    src: url('fonts/PitchSansWeb-Medium.woff') format('woff');
-  }
-  
-  /*
-  ==============================================
-  Type Scale
-  ============================================== */
-  
-  ::-moz-selection { background: #ffffcc; }
-  ::selection { background: #ffffcc; }
-  
-  html {
-    font-size: 17px; /* base unit for rems */
-    line-height: 1.6;
-    font-family: Mallory, Verdana, sans-serif;
-    color: #444;
-  }
-  
-  /* Headlines */
-  
-  h1 {
-    font-size: 1.4rem;
-    letter-spacing: -0.01em; /* pull it since spacing is designed for running text */
-    line-height: 1.333;
-    font-weight: normal;
-  }
-  
-  @media (min-width: 600px) {
-    h1 { font-size: 2rem; }
-  }
-  
-  h2 {
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    margin-top: 2rem;
-  }
-  
-  h3 {
-    font-size: 0.9rem;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: rgba(0,0,0,0.5);
-    margin-top: 2rem;
-  }
-  
-  h4 {
-    font-size: 0.9rem;
-    font-weight: normal;
-    color: rgba(0,0,0,0.5);
-    margin-top: 2rem;
-  }
-  
-  h4:before {
-    content: '禮 ';
-  }
-  
-  small {
-    font-family: 'Pitch Sans', SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 0.9rem;
-    color: rgba(0,0,0,0.5);
-  }
-  
-  small a {
-    color: rgba(0,0,0,0.5);
-    border-bottom: 1px solid rgba(0,0,0,0.25);
-  }
-  
-  p small {
-    display: block;
-    margin-top: 0.5rem;
-    line-height: 1.4;
-  }
-  
-  /* Links */
-  
-  a {
-    text-decoration: none;
-    color: #444;
-    border-bottom: 1px solid #07d;
-    position: relative;
-    transition: color 0.15s ease-out;
-  }
-  
-  a:hover { color: #07d; }
-  
-  a.heavy {
-    color: #07d;
-    border-bottom: none;
-  }
-  
-  a.heavy:hover {
-    border-bottom: 1px solid #07d;
-  }
-  
-  a.naked {
-    border-bottom: none;
-    color: inherit;
-  }
-  
-  a.naked:hover { color: #07d; }
-  
-  /* Paragraph-like tags */
-  
-  blockquote {
-    font-size: 0.9rem;
-    padding: 0 0 0 1.5em;
-    border-left: 2px solid rgba(0,0,0,0.1);
-  }
-  
-  dl {
-    padding: 0.5em 0 0.5em 2em;
-  }
-  
-  dt {
-    /*font-weight: bold;*/
-    text-indent: -0.75em;
-  }
-  
-  dt:before {
-    content: '�𤄄';
-    font-size: 0.7rem;
-    display: inline-block;
-    width: 1em;
-    color: rgba(0,0,0,0.25);
-  }
-  
-  dd {
-    margin: 0;
-    margin-bottom: 1em;
-  }
-  
-  ul.naked {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Code type */
-  
-  code {
-    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    background-color: rgb(239, 247, 255);
-    color: rgb(39, 68, 102);
-    font-size: 0.8rem;
-    padding: 4px;
-    border-radius: 4px;
-  }
-  
-  .code {
-    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 0.8rem;
-    list-style-type: decimal-leading-zero;
-    color: rgba(0,0,0,0.25);
-    background-color: #F5F5F0;
-    padding: 0;
-    margin: 2rem 0;
-    list-style-position: inside;
-  }
-  
-  .code code {
-    background: none;
-    color: rgba(0,0,0,0.75);
-    white-space: pre;
-  }
-  
-  ol.code li { padding: 0.25rem 1rem; }
-  ol.code li:nth-child(even) { background-color: rgba(125,100,0,0.05); }
-  
-  /* Hiding the 'Show Code View' link, because copying the code out of the ol tag
-  doesn't copy the leading numerals on the li elements. Duplication of code on
-  old shiflet.org code base to be removed from source. */
-  p.contract { display: none; }
-  
-  /* Inline type elements */
-  
-  abbr[title] {
-    text-decoration: none; /* overwrite normalize.css */
-    border-bottom: 1px dotted rgba(0,0,0,0.5);
-  }
-  
-  
-  /*
-  ==============================================
-  Site-specific
-  ============================================== */
-  
-  div.note {
-    background-color: rgb(245, 245, 240);
-    padding: 0.5rem 2rem;
-    margin: 2rem 0;
-    font-size: 0.9rem; /* to match blockquote */
-  }
-  
-  div.note:before {
-    content: 'Note';
-    /* style like h2 */
-    color: rgba(0,0,0,0.5);
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    display: block;
-    margin: 0.75rem 0 -0.5rem;
-  }
-  
-  div.note code {
-    color: rgba(0,0,0,0.75);
-    background-color: rgba(0,0,0,0.08);
-  }
-  
-  
-  /*
-  ==============================================
-  Media Queries
-  ============================================== */
-  
-  /*@media (min-width: 1300px) {
-    html { font-size: 20px; }
-  }*/
+  font-family: 'Mallory';
+  src: url('fonts/Mallory-Book.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Mallory';
+  font-style: italic;
+  src: url('fonts/Mallory-Book-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Mallory';
+  font-weight: bold;
+  src: url('fonts/Mallory-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Mallory';
+  font-weight: bold;
+  font-style: italic;
+  src: url('fonts/Mallory-Bold-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pitch Sans';
+  src: url('fonts/PitchSansWeb-Medium.woff') format('woff');
+}
+
+/*
+==============================================
+Type Scale
+============================================== */
+
+::-moz-selection { background: #E6B8A9; }
+::selection { background: #F7E4DC; }
+
+html {
+  font-size: 17px;
+  line-height: 1.6;
+  /* font-family: Mallory, Verdana, sans-serif; */
+  color: #444;
+}
+
+h1 {
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  line-height: 1.333;
+  font-weight: normal;
+}
+
+h1.homeheadline {
+  color: #C9876A;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  h1 { font-size: 2rem; }
+}
+
+h2 {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(0,0,0,0.5);
+  margin-top: 2rem;
+}
+
+h4 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: rgba(0,0,0,0.5);
+  margin-top: 2rem;
+}
+
+h4:before {
+  content: '禮 ';
+}
+
+small {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.5);
+}
+
+small a {
+  color: rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+p small {
+  display: block;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+  border-bottom: 1px solid #D8C3A5;
+  position: relative;
+  transition: color 0.15s ease-out;
+}
+
+a:hover {
+  color: #C9876A;
+  font-weight: bold;          /* 粗體 */
+  text-decoration: underline; /* 底線 */
+}
+
+a.heavy {
+  color: #C1A57B;
+  border-bottom: none;
+}
+
+a.heavy:hover {
+  border-bottom: 1px solid #D8C3A5;
+}
+
+a.naked {
+  border-bottom: none;
+  color: inherit;
+}
+
+a.naked:hover {
+  color: #D8C3A5;
+}
+
+blockquote {
+  font-size: 0.9rem;
+  padding: 0 0 0 1.5em;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+dl {
+  padding: 0.5em 0 0.5em 2em;
+}
+
+dt {
+  text-indent: -0.75em;
+}
+
+dt:before {
+  content: '�𤄄';
+  font-size: 0.7rem;
+  display: inline-block;
+  width: 1em;
+  color: rgba(0,0,0,0.25);
+}
+
+dd {
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+ul.naked {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: rgb(239, 247, 255);
+  color: rgb(39, 68, 102);
+  font-size: 0.8rem;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  list-style-type: decimal-leading-zero;
+  color: rgba(0,0,0,0.25);
+  background-color: #F5F5F0;
+  padding: 0;
+  margin: 2rem 0;
+  list-style-position: inside;
+}
+
+.code code {
+  background: none;
+  color: rgba(0,0,0,0.75);
+  white-space: pre;
+}
+
+ol.code li {
+  padding: 0.25rem 1rem;
+}
+
+ol.code li:nth-child(even) {
+  background-color: rgba(125,100,0,0.05);
+}
+
+p.contract {
+  display: none;
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(0,0,0,0.5);
+}
+
+div.note {
+  background-color: rgb(245, 245, 240);
+  padding: 0.5rem 2rem;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+div.note:before {
+  content: 'Note';
+  color: rgba(0,0,0,0.5);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  display: block;
+  margin: 0.75rem 0 -0.5rem;
+}
+
+div.note code {
+  color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.08);
+}
