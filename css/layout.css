@@ -516,7 +516,9 @@ div.heroimg img { display: none; }
 Homepage
 ============================================== */
 
-h1.homeheadline { color: rgba(0,0,0,0.5); }
+h1.homeheadline { 
+  color: rgba(0,0,0,0.5); }
+
 h1.homeheadline span { color: #333; }
 
 @media (min-width: 1000px) {
@@ -563,3 +565,47 @@ Title
   color: #F2EAE4;
   background-color: #3B2F2F;
 }
+
+/*
+==============================================
+subnav
+==============================================*/
+.tech-subnav-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-right: 3.5rem;
+}
+
+.tech-subnav-right a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  color: #005F73 !important;
+  text-decoration: none;
+  border-bottom: none; /* 關鍵！取消多餘底線 */
+  transition: color 0.2s ease;
+}
+
+.tech-subnav-right a:hover {
+  color: #0A9396; /* 可選擇偏亮的對比色 */
+  border-bottom: none; /* 保證 hover 時也沒有底線 */
+  opacity: 0.85;
+}
+
+.tech-intro {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* 整個區塊底部的淡色線 */
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tech-intro h1 {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.tech-header-block {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
