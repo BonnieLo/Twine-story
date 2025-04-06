@@ -18,7 +18,7 @@
         <li><a href="/" title="Home Page">Home</a></li>
         <li><a href="/technology.html" title="Tech trends and innovations">Technology</a></li>
         <li><a href="/design" title="Creative designs and concepts">Design</a></li>
-        <li><a href="/about" title="Learn more about Bonnie">About</a></li>
+        <li><a href="/aboutme.html" title="Learn more about Bonnie">About</a></li>
       </ul>
     </nav>
   </header>
@@ -43,33 +43,53 @@
         <div class="tech-header-block">
           <h1 class="homeheadline">Exploring Technology and the Art of Everyday Living</h1>
           <div class="tech-subnav-right">
-            <a href="#blog">Blog</a>
-            <a href="#showcase">Showcase</a>
-            <a href="#tools">Tools</a>
+            <a href="#quicktechnotes">[Quick Tech Notes]</a>
+            <a href="#showcase">[Showcase]</a>
           </div>
         </div>
       
-        <p class="dim">This page features creative tools, digital concepts, and observations from around the world.</p>
+        <p class="dim">Things I build, write, and observe along the way.</p>
       </section>
 
-    <!-- Grid layout for categories -->
-    <section class="tech-section">
-      <h2>Categories</h2>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <h3>Blog</h3>
-          <p>Essays, tech reflections, and cultural fieldnotes from cities around the world.</p>
-        </div>
-        <div class="tech-card">
-          <h3>Showcase / Video</h3>
-          <p>Loom-recorded demos and stories behind my AI agents and interactive tools.</p>
-        </div>
-        <div class="tech-card">
-          <h3>Tools</h3>
-          <p>Custom-built helpers, automation scripts, and tiny life-enhancing prototypes.</p>
-        </div>
-      </div>
-    </section>
+    <!-- Grid layout for categories --> 
+    <!-- BONNIE TODO: Add more Tech Note here -->
+    <article id="quicktechnotes" class="tech-category">
+        <section>
+          <h2 class="tech-category-label">Quick Tech Notes</h2>
+      
+          <ul class="naked postlist">
+            <li>
+              <a href="TechNotePage/tech-note-origin.html" class="heavy">Tiny Tools, Quiet Thoughts, and Why They Matter</a>
+              <p>A short reflection on how small notes and quiet tools shape my thinking.</p>
+              <small>Published in Bonnie’s Notes on 24 Mar 2025</small>
+            </li>
+      
+            <li>
+              <a href="TechNotePage/ai-agent.html" class="heavy">What is AI and AI Agent??</a>
+              <p>My plain-English attempt to explain what agents do in AI systems.</p>
+              <small>Published in Bonnie’s Notes on 25 Mar 2025</small>
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    <!-- Bonnie TODO: Add more showcase here -->
+    <article id="showcase" class="tech-category">
+        <section>
+          <h2 class="tech-category-label">Showcase</h2>
+          <p><em>Demos, prototypes, and behind-the-scenes of what I build.</em></p>
+          <hr>
+      
+          <ul class="naked postlist">
+            <li>
+              <iframe src="https://www.loom.com/embed/examplevideo1" frameborder="0" allowfullscreen style="width: 100%; aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem;"></iframe>
+              <p><strong>AI Agent: repopilot</strong></p>
+              <p>Helps analyze Python repos and auto-generate docs.</p>
+              <small>Demo published on 20 Mar 2025</small>
+            </li>
+          </ul>
+        </section>
+      </article>   
   </main>
 
   <footer role="contentinfo">

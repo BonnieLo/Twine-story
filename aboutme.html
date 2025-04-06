@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City Bonnie — About</title>
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/type.css" />
+  <link rel="stylesheet" href="css/print.css" media="print" title="print"/>
+  <style>
+    .about-wrapper {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .about-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      padding: 0rem 2rem 2rem 2rem;  /* 🔧 修改這一行 */
+      box-sizing: border-box;
+      position: relative;
+    }
+    .about-slide h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .slide-lang-switch {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .slide-lang-switch button {
+    background-color: #C9876A;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    transition: background-color 0.2s ease;
+    }
+
+    .slide-lang-switch button:hover {
+    background-color: #a86f5e;
+    }
+  </style>
+</head>
+<body class="home">
+  <header role="banner">
+    <a href="/" class="title bonnie-title">
+      <h1>City Bonnie</h1>
+    </a>
+    <nav role="navigation">
+      <ul>
+        <li><a href="/" title="Home Page">Home</a></li>
+        <li><a href="/technology.html" title="Tech trends and innovations">Technology</a></li>
+        <li><a href="/design" title="Creative designs and concepts">Design</a></li>
+        <li><a href="/aboutme.html" title="Learn more about Bonnie">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="landscape">
+    <div class="heroimg" style="background-image:url('Image/image_bonnie_1.JPG');">
+      <div class="geotag">
+        <div>
+          <h3>Photo Location</h3>
+          <p>Imaginary Place<br>35.0000&deg; N<br>120.0000&deg; E</p>
+          <p class="credit">Photo by Bonnie</p>
+        </div>
+      </div>
+    </div>
+    <div class="marquee">
+      “Knowledge is the bridge that unites us. Break the barriers, embrace the light, and let curiosity lead the way.” &middot; BONNIE
+    </div>
+  </section>
+
+  <main role="main">
+    <section class="about-wrapper" id="about-slider">
+        <div class="about-slide">
+            <div class="slide-lang-switch">
+                <button onclick="scrollToSlide(1)">中文</button>
+            </div>
+            <h2>About Bonnie</h2>
+            <p>She is an observer and a creator who took a turn from being a firmware engineer. Instead of staying solely in the world of logic and code, she turned her focus to the textures of daily life — coffee, painting, space, and culture.</p>
+            <p>Bonnie once built robust systems across datacenters and racks. Later, she stepped into cafés, learning the rhythm and warmth of brewing. With a brush in hand, she began sketching quiet corners and soft emotions during her travels. She is not only interested in the progress of technology, but also in how it gently weaves into people’s lives, environments, and stories.</p>
+            <p>She created this website not to impress, but to quietly shine. To her, it is a house of light — filled with reflections on AI and data science, and small sketches and notes gathered across cities and continents.</p>
+            <p>Bonnie believes that technology shouldn’t live only in complex algorithms — it should also exist in places that understand and accompany your daily life. From firmware to espresso aroma, from computer science to human stories, she continues walking the path of transforming technology into gentle human connections.</p>
+            <p><em>Bridging Knowledge Gaps: Technology, Design, and Artful Living.</em></p>
+            <p>
+              More about Bonnie? Let’s chat over coffee.
+              <a href="https://www.instagram.com/citybonnieontherun/" target="_blank"
+                class="icon-link"
+                style="display: inline-flex; align-items: center; gap: 0.3rem; text-decoration: none; color: #333;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C9876A" viewBox="0 0 24 24" style="margin-bottom: -1px;">
+                  <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5Zm0 1.5h8.5c2.17 0 3.75 1.58 3.75 3.75v8.5c0 2.17-1.58 3.75-3.75 3.75h-8.5A3.76 3.76 0 0 1 4 16.25v-8.5C4 5.83 5.58 4.25 7.75 4.25Zm4.25 3a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5Zm0 1.5a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm5.25-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/>
+                </svg>
+                <span>@citybonnieontherun</span>
+              </a>
+            </p>
+          </div>
+
+        <div class="about-slide">
+            <div class="slide-lang-switch">
+                <button onclick="scrollToSlide(0)">EN</button>
+            </div>
+            <h2>關於 Bonnie</h2>
+            <p>她是一位由韌體工程師轉身而來的觀察者與創作者。不甘於只在邏輯與程式碼中鑽研，她把目光投向日常生活的紋理——咖啡、繪畫、空間、文化。</p>
+            <p>Bonnie曾在Datacenter與Rack之間打造良好的系統。後來，她走進咖啡館，學習沖煮咖啡的溫度與節奏，也提起畫筆，用水彩速寫記錄旅途中安靜的街角與柔軟的情感。她不只關注科技的進步，也關心這些技術如何與人、空間、生活產生真正的連結。</p>
+            <p>她創建這個網站，不為喧鬧，不為展現，而是為了建立一個靜靜發光的空間。她希望這個網站像一座有光的房子，裡面藏著她訴說AI時代與數據科學的故事、世界各地明信片速寫與觀察筆記。</p>
+            <p>她相信，科技的力量不該只存在於複雜的演算法中，也應該存在於一個更懂你、陪伴你生活的空間裡。從程式碼到咖啡香，從電腦科學到人文故事，她持續走在一條「將科技轉化為人與人之間溫柔連結」的路上。</p>
+            <p><em>串連知識的橋樑：科技、設計，以及日常生活的藝術。</em></p>
+            <p>
+                這裡有 Bonnie 本人的日常生活實記：
+                <a href="https://www.instagram.com/citybonnieontherun/"
+                    target="_blank"
+                    class="icon-link"
+                    style="display: inline-flex; align-items: center; gap: 0.3rem; text-decoration: none; color: #333;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C9876A" viewBox="0 0 24 24" style="margin-bottom: -1px;">
+                    <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5Zm0 1.5h8.5c2.17 0 3.75 1.58 3.75 3.75v8.5c0 2.17-1.58 3.75-3.75 3.75h-8.5A3.76 3.76 0 0 1 4 16.25v-8.5C4 5.83 5.58 4.25 7.75 4.25Zm4.25 3a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5Zm0 1.5a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm5.25-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/>
+                </svg>
+                <span>@citybonnieontherun</span>
+                </a>
+            </p> 
+        </div>
+    </section>
+
+    <section>
+      <h2>Professional Background</h2>
+      <ul class="postlist condensed">
+        <li>
+          <small>2022 – Present</small>
+          <span>Technical Manager at Wiwynn</span>
+          <p>Led firmware development for multi-node server management; presented at OCP Summit.</p>
+        </li>
+        <li>
+          <small>2017 – 2022</small>
+          <span>Technical Lead & Senior Firmware Engineer</span>
+          <p>Contributed to OpenBMC & OpenBIC with Meta & Twitter; trained teams on Redfish APIs.</p>
+        </li>
+        <li>
+          <small>2014 – 2017</small>
+          <span>Firmware & Software Engineer</span>
+          <p>Worked on JBOF systems, Meta OpenBMC, and customized OS kernels.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education & Skills</h2>
+      <p><strong>Master of Science</strong> in Computer Science<br>
+      National Taiwan Normal University, 2012 – 2014</p>
+      <ul>
+        <li>Thesis: Vision-based Infant Physical Activity Monitoring</li>
+        <li>Presentation: IEEE SSCI, Singapore</li>
+        <li>Languages: C/C++, Python, Shell</li>
+        <li>Tech: Yocto, Zephyr, Redfish, Linux Kernel</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Coffee Journey</h2>
+      <p>In 2025, I pursued barista training and obtained official certifications:</p>
+      <ul>
+        <li>SITHFAB025: Prepare and Serve Espresso Coffee</li>
+        <li>SITXFSA005: Use Hygienic Practices for Food Safety</li>
+      </ul>
+      <p>Interned at <strong>Impresso Café</strong> from <em>March 17 to April 18, 2025</em>, bringing hospitality into my creative and tech process.</p>
+    </section>
+
+    <section>
+      <h2>Connect with Me</h2>
+      <p>Email: <a href="mailto:milkchickenpanda@gmail.com">milkchickenpanda@gmail.com</a><br>
+      LinkedIn: <a href="https://www.linkedin.com/in/bonnie-lo-1b9587a6">Bonnie Lo</a><br>
+      GitHub: <a href="https://github.com/BonnieLo">BonnieLo</a><br>
+      YouTube: <a href="https://www.youtube.com/watch?app=desktop&v=FY5FlSU-ofQ">My Talk at OCP Summit</a></p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2024–2025 Chiao Shan Lo.</p>
+    <p>
+      <a href="https://www.linkedin.com/in/bonnie-lo-1b9587a6/" class="icon">
+        <img src="Image/linkedin.svg" alt="LinkedIn">
+      </a>
+    </p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.5.0/jquery.marquee.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function scrollToSlide(index) {
+      const wrapper = document.getElementById('about-slider');
+      wrapper.scrollTo({ left: wrapper.clientWidth * index, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

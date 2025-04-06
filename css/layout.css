@@ -595,7 +595,7 @@ subnav
 .tech-intro {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* 整個區塊底部的淡色線 */
   padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .tech-intro h1 {
@@ -608,4 +608,63 @@ subnav
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
+
+/* ============================================== */
+/* Add: Clear category section heading styles     */
+/* ============================================== */
+
+.tech-category-label {
+  font-size: 1.3rem;              /* 比 h3 再大一點 */
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  color: #222;
+  border-bottom: 2px solid #bbb;  /* 底線稍微加粗 */
+  padding-bottom: 0.4em;
+}
+
+ul.naked {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.naked li {
+  margin-bottom: 2rem;
+}
+
+ul.naked li a.heavy {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+ul.naked li p {
+  margin: 0.5rem 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+ul.naked li small {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+#quicktechnotes {
+  background-color: #fdf6f0;  /* 淺膚色，溫暖感 */
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+#showcase {
+  background-color: #f0f6f9;  /* 淺藍灰色，科技感 */
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
 
