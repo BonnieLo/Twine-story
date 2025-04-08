@@ -62,18 +62,45 @@
       </ul>
     </nav>
   </header>
-
-  <section class="landscape">
-    <div class="heroimg" style="background-image:url('Image/image_bonnie_1.JPG');">
-      <div class="geotag">
-        <div>
-          <h3>Photo Location</h3>
-          <p>Imaginary Place<br>35.0000&deg; N<br>120.0000&deg; E</p>
-          <p class="credit">Photo by Bonnie</p>
-        </div>
+  
+  <section class="landscape" style="display: flex;">
+    <div class="heroimg" style="flex: 1; padding: 0; height: auto; overflow: hidden;">
+      <iframe 
+        src="https://www.google.com/maps/d/u/4/embed?mid=1Jxn5Jjf39whaWKAgS-5sVJ0L1XhiwVU&ehbc=2E312F" 
+        width="100%" 
+        height="480" 
+        style="border:0; margin-top: -60px;"
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+  
+      <!-- 💌 表單區塊 -->
+      <div style="padding: 0rem 1.5rem 4rem 1.5rem; font-family: 'IBM Plex Mono', monospace; background-color: #fdf9f6;">
+        <h3 style="text-align: center; font-size: 1rem; color: #333; margin-bottom: 1rem;">
+          📍 Pin a place you love
+        </h3>
+        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 1.5rem;">
+          你想推薦我去哪裡散步、喝咖啡、寫程式嗎？歡迎留言給我，我會在那個城市想起你。
+        </p>
+        <form action="https://formspree.io/f/meoapdnl" method="POST" style="max-width: 500px; margin: 0 auto;">
+          <label style="display: block; margin-bottom: 1rem;">
+            Your email:<br>
+            <input type="email" name="email" required style="width: 100%; padding: 0.5rem; font-family: monospace; border: 1px solid #ccc; border-radius: 4px;">
+          </label>
+  
+          <label style="display: block; margin-bottom: 1.5rem;">
+            Your message:<br>
+            <textarea name="message" rows="4" required style="width: 100%; padding: 0.5rem; font-family: monospace; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+          </label>
+  
+          <button type="submit" style="background-color: #C9876A; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
+            📩 Send
+          </button>
+        </form>
       </div>
     </div>
-    <div class="marquee">
+  
+    <div class="marquee" style="flex: 0 0 40px;">
       “Knowledge is the bridge that unites us. Break the barriers, embrace the light, and let curiosity lead the way.” &middot; BONNIE
     </div>
   </section>
@@ -132,17 +159,17 @@
       <h2>Professional Background</h2>
       <ul class="postlist condensed">
         <li>
-          <small>2022 – Present</small>
+          <small>2022–2024</small>
           <span>Technical Manager at Wiwynn</span>
           <p>Led firmware development for multi-node server management; presented at OCP Summit.</p>
         </li>
         <li>
-          <small>2017 – 2022</small>
+          <small>2017–2022</small>
           <span>Technical Lead & Senior Firmware Engineer</span>
           <p>Contributed to OpenBMC & OpenBIC with Meta & Twitter; trained teams on Redfish APIs.</p>
         </li>
         <li>
-          <small>2014 – 2017</small>
+          <small>2014–2017</small>
           <span>Firmware & Software Engineer</span>
           <p>Worked on JBOF systems, Meta OpenBMC, and customized OS kernels.</p>
         </li>
