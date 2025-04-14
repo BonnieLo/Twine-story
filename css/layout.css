@@ -439,6 +439,7 @@ div.heroimg img { display: none; }
   left: 0;
   overflow: hidden;
   transition: all 0.2s ease-out;
+  z-index: 10;
 }
 
 .geotag:not(.expand) {
@@ -453,9 +454,10 @@ div.heroimg img { display: none; }
 
 .geotag svg {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  cursor: pointer;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .geotag>div {
@@ -667,3 +669,29 @@ ul.naked li small {
   margin-bottom: 3rem;
 }
 
+/* Container for the whole design section */
+.design-grid {
+  padding: 2rem; /* Adds spacing around the content */
+  font-family: 'IBM Plex Mono', monospace; /* Consistent monospaced font styling */
+}
+
+/* Grid layout for displaying postcard items */
+.gallery-grid {
+  display: grid; /* Enables CSS Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns that adapt to screen size */
+  gap: 1.5rem; /* Spacing between grid items */
+}
+
+/* Styling for each postcard image */
+.postcard-item img {
+  width: 100%; /* Makes image fully fill its container */
+  border-radius: 8px; /* Rounded corners for visual softness */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Caption below each postcard */
+.postcard-item p {
+  margin-top: 0.5rem; /* Space between image and caption */
+  font-size: 0.85rem; /* Slightly smaller text for caption */
+  color: #444; /* Medium-dark text for readability */
+}

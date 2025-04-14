@@ -57,13 +57,23 @@
       <ul>
         <li><a href="/" title="Home Page">Home</a></li>
         <li><a href="/technology.html" title="Tech trends and innovations">Technology</a></li>
-        <li><a href="/design" title="Creative designs and concepts">Design</a></li>
+        <li><a href="/design.html" title="Creative designs and concepts">Design</a></li>
         <li><a href="/aboutme.html" title="Learn more about Bonnie">About</a></li>
       </ul>
     </nav>
   </header>
   
   <section class="landscape" style="display: flex;">
+    <div class="heroimg" style="background-image:url('Image/image_bonnie_1.JPG');">
+        <div class="geotag">
+          <div>
+            <h3>Photo Location</h3>
+            <p>Imaginary Place<br>35.0000&deg; N<br>120.0000&deg; E</p>
+            <p class="credit">Photo by Bonnie</p>
+          </div>
+        </div>
+      </div>
+    
     <div class="heroimg" style="flex: 1; padding: 0; height: auto; overflow: hidden;">
       <iframe 
         src="https://www.google.com/maps/d/u/4/embed?mid=1Jxn5Jjf39whaWKAgS-5sVJ0L1XhiwVU&ehbc=2E312F" 
@@ -73,7 +83,7 @@
         allowfullscreen="" 
         loading="lazy">
       </iframe>
-  
+
       <!-- 💌 表單區塊 -->
       <div style="margin-top: -1rem; padding: 2rem 1rem 3rem 1rem; font-family: 'IBM Plex Mono', monospace; background-color: #fdf9f6;">
         <h3 style="text-align: center; font-size: 1rem; color: #333; margin-top: -0.5rem; margin-bottom: 1rem;">
@@ -248,7 +258,7 @@
       </section>
 
       <section>
-        <h2>Connect with Me</h2>
+        <h2 style="font-size: 1.5rem;">Connect with Me</h2>
         <p style="font-size: 0.9rem;">
           ☕ Wanna treat me to coffee? <a href="https://www.buymeacoffee.com/cozylivingc" target="_blank" style="font-size: 0.85rem;">click here</a> 💛<br>
           📧 Email: <a href="mailto:milkchickenpanda@gmail.com">milkchickenpanda@gmail.com</a><br>
@@ -271,10 +281,13 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.5.0/jquery.marquee.min.js"></script>
   <script src="js/main.js"></script>
   <script>
-    function scrollToSlide(index) {
-      const wrapper = document.getElementById('about-slider');
-      wrapper.scrollTo({ left: wrapper.clientWidth * index, behavior: 'smooth' });
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+      const geotag = document.getElementById('geotag');
+      geotag.addEventListener('click', function () {
+        geotag.classList.toggle('expand');
+      });
+    });
   </script>
+  
 </body>
 </html>

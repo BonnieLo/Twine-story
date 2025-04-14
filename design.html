@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City Bonnie — Design</title>
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/type.css" />
+  <link rel="stylesheet" href="css/print.css" media="print" title="print" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="home">
+  <header role="banner">
+    <a href="/" class="title bonnie-title">
+      <h1>City Bonnie</h1>
+    </a>
+    <nav role="navigation">
+      <ul>
+        <li><a href="/" title="Home Page">Home</a></li>
+        <li><a href="/technology.html" title="Tech trends and innovations">Technology</a></li>
+        <li><a href="/design.html" title="Creative designs and concepts" class="active">Design</a></li>
+        <li><a href="/aboutme.html" title="Learn more about Bonnie">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="landscape">
+    <div class="heroimg" style="background-image:url('Image/image_bonnie_1.JPG');">
+      <div class="geotag">
+        <div>
+          <h3>Photo Location</h3>
+          <p>Imaginary Place<br>35.0000&deg; N<br>120.0000&deg; E</p>
+          <p class="credit">Photo by Bonnie</p>
+        </div>
+      </div>
+    </div>
+    <div class="marquee">
+      “Knowledge is the bridge that unites us. Break the barriers, embrace the light, and let curiosity lead the way.” &middot; BONNIE
+    </div>
+  </section>
+
+  <main role="main">
+    <h1 class="homeheadline">Designing with Purpose: Bridging Technology and Artful Living.</h1>
+    <header class="tech-category-label">
+        🚧 This section is still under construction. 投票功能尚未開放，敬請期待！Thanks for your patience! 🐰🛠️ 
+    </header>
+    <section class="design-grid">
+        <h2 class="tech-category-label">✉️ Postcards for Strangers</h2>
+        <div class="gallery-grid">
+          <div class="postcard-item">
+            <img src="Image/postcard1.jpg" alt="Postcard 1" />
+            <p>Brisbane · A quiet café morning with sun and scribbles.</p>
+            <button class="vote-btn" onclick="vote('postcard1')">🌟 I like this</button>
+            <div class="vote-count" id="postcard1-count">Votes: 0</div> <!-- 👈 這個 ID 要有！ -->
+          </div>
+          <div class="postcard-item">
+            <img src="Image/postcard2.jpg" alt="Postcard 2" />
+            <p>South Bank · Sketching under jacaranda trees.</p>
+            <button class="vote-btn" onclick="vote('postcard2')">🌟 I like this</button>
+            <div class="vote-count" id="postcard2-count">Votes: 0</div> <!-- 👈 這個 ID 要有！ -->
+          </div>
+          <!-- 更多卡片可以直接複製貼上 -->
+        </div>
+      </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2024&ndash;2025 Chiao Shan Lo.</p>
+    <p>
+      <a href="https://www.linkedin.com/in/bonnie-lo-1b9587a6/" class="icon">
+        <img src="Image/linkedin.svg" alt="LinkedIn">
+      </a>
+    </p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.5.0/jquery.marquee.min.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, collection } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+    import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    // ✅ 替換成你自己的 config
+    const firebaseConfig = {
+      apiKey: "AIzaSyD6qjmsC4aS8uCASak4N4FWBURy1WY-MOk",
+      authDomain: "bonnie-vote.firebaseapp.com",
+      projectId: "bonnie-vote",
+      storageBucket: "bonnie-vote.firebasestorage.app",
+      messagingSenderId: "389549570980",
+      appId: "1:389549570980:web:7026600ce6d5bd18811f31",
+      measurementId: "G-6D3Z6G29GE"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+  
+    let currentUser = null;
+  
+    // ✅ 匿名登入
+    signInAnonymously(auth).catch(console.error);
+  
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        currentUser = user;
+        console.log("Signed in as:", user.uid);
+        initializeVotes();
+      }
+    });
+  
+    // ✅ 初始載入票數
+    async function initializeVotes() {
+    const ids = ['postcard1', 'postcard2']; // 你可以新增更多 ID
+        for (let id of ids) {
+            const voteRef = doc(db, "votes", id);
+
+            // 🔁 onSnapshot 會即時更新票數
+            onSnapshot(voteRef, (docSnap) => {
+            const count = docSnap.exists() ? docSnap.data().count : 0;
+            const el = document.getElementById(`${id}-count`);
+            if (el) {
+                el.innerText = 'Votes: ' + count;
+            }
+            });
+        }
+    }
+
+  
+    // ✅ 投票功能
+    async function vote(id) {
+      if (!currentUser) {
+        alert("Please wait, still signing in...");
+        return;
+      }
+  
+      const voteRef = doc(db, "votes", id);
+      const userVoteDoc = doc(collection(voteRef, "users"), currentUser.uid); // 正確子 collection 寫法
+  
+      const userVoted = await getDoc(userVoteDoc);
+      if (userVoted.exists()) {
+        alert("You already voted! 🐰");
+        return;
+      }
+  
+      // 記錄投票行為
+      await setDoc(userVoteDoc, { votedAt: new Date() });
+  
+      // 投票數加 1
+      await setDoc(voteRef, { count: increment(1) }, { merge: true });
+  
+      // 更新頁面票數
+      const updated = await getDoc(voteRef);
+      const el = document.getElementById(`${id}-count`);
+      if (el) {
+        el.innerText = 'Votes: ' + updated.data().count;
+      }
+    }
+  
+    // 讓 HTML 的 onclick 可以用
+    window.vote = vote;
+  </script>
+  
+</body>
+</html>
