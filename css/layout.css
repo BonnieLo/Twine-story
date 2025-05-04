@@ -695,3 +695,8 @@ ul.naked li small {
   font-size: 0.85rem; /* Slightly smaller text for caption */
   color: #444; /* Medium-dark text for readability */
 }
+
+.cta-button:hover {
+  background-color: #b67358;
+  transition: 0.3s ease;
+}
